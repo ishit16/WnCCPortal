@@ -2,8 +2,62 @@ import { Button } from "antd";
 import { Helmet } from "react-helmet";
 import "./auth.css";
 import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
+import { getLoginURL, SSO } from "../config/sso";
+import useQueryString from "../hooks/useQueryString";
+import getAuthStatusAction from "../store/authSlice";
+import loginAction from "../store/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import toast from "../components/shared/toast/toast";
 
 function LandingPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { deleteQueryString, getQueryString } = useQueryString();
+  const { isAuthenticated, loading } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    // * isAuthenticated === true => already authenticated => redirect away from login
+    // * isAuthenticated === null => auth status unknown => check with backend server
+    // * isAuthenticated === false => not authenticated => check if auth is possible
+
+    if (isAuthenticated) {
+      const state = JSON.parse(getQueryString("state")) ?? "/";
+      navigate(state, { replace: true });
+    } else if (isAuthenticated === null) {
+      dispatch(getAuthStatusAction());
+    } else {
+      // ? If user is not authenticated
+      const code = getQueryString("code");
+      if (code) {
+        const loginUser = async (params) => {
+          try {
+            const response = await dispatch(loginAction({ params }));
+            toast({ status: "success", content: response?.payload?.detail });
+          } catch (error) {
+            toast({ status: "error", content: error });
+          }
+        };
+
+        const params = { code, redir: SSO.BASE_REDIRECT_URI };
+        deleteQueryString("code");
+        loginUser(params);
+      }
+
+      // ? If SSO login is unsuccessfull, an error param appears in the query string
+      const error = getQueryString("error");
+      if (error) {
+        toast({ status: "error", content: `Error: ${error}` });
+        deleteQueryString("error");
+      }
+    }
+  }, [dispatch, navigate, getQueryString, deleteQueryString, isAuthenticated]);
+
+  const redirectLogin = () => {
+    window.location.href = getLoginURL(location.state?.from);
+  };
   return (
     <>
       <Helmet>
@@ -32,7 +86,8 @@ function LandingPage() {
               <button
                 type="button"
                 size="large"
-                class="opacity-100 border-none focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                className="opacity-100 border-none focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                onClick={redirectLogin}
               >
                 <span className="text-white font-sans font-bold text-lg">
                   Login with SSO

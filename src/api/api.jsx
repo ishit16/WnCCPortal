@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "../components/shared/toast";
+import toast from "../components/shared/toast/toast";
 
 export const APIInstance = axios.create({
   baseURL: import.meta.env.VITE_API_HOST,

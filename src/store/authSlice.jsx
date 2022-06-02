@@ -14,6 +14,11 @@ export const logoutAction = createAsyncThunk(
   API.auth.authenticate
 );
 
+export const getAuthStatusAction = createAsyncThunk(
+  "auth/getAuthStatusAction",
+  API.auth.authenticate
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
