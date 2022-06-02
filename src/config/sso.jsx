@@ -1,7 +1,7 @@
 export const SSO = {
   HOST: "https://gymkhana.iitb.ac.in/sso/oauth/authorize/",
-  CLIENT_ID: process.env.REACT_APP_SSO_CLIENT_ID,
-  BASE_REDIRECT_URI: process.env.REACT_APP_SSO_REDIRECT_URI,
+  CLIENT_ID: import.meta.env.VITE_SSO_CLIENT_ID,
+  BASE_REDIRECT_URI: import.meta.env.VITE_SSO_REDIRECT_URI,
   SCOPE: "basic profile picture ldap program",
   RESPONSE_TYPE: "code",
 };
