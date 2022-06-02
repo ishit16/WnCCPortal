@@ -1,0 +1,18 @@
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    padding: 1.5rem;
+    background: rgb(43, 39, 59, 0.7);
+    border-radius: 0.5rem;
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 0.75rem;
+    color: rgb(255, 255, 255);
+}
