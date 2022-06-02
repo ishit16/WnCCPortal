@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { Helmet } from "react-helmet";
 import "./auth.css";
-// import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
+import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
 
 function LandingPage() {
   return (
@@ -27,7 +27,7 @@ function LandingPage() {
           </div>
           <div className="auth-container">
             <h1 className="font-sans">Join the Force</h1>
-            {/* <ResoBinLogo width="3rem" alt="logo" /> */}
+            <ResoBinLogo width="5rem" alt="logo" />
             <div className="py-2 px-2 md:py-2 md:px-2 lg:py-2 lg:px-2 w-fit mx-auto my-auto">
               <button
                 type="button"
