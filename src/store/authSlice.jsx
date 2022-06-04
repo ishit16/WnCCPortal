@@ -11,7 +11,7 @@ export const loginAction = createAsyncThunk("auth/loginAction", API.auth.login);
 
 export const logoutAction = createAsyncThunk(
   "auth/getAuthStatusAction",
-  API.auth.authenticate
+  API.auth.logout
 );
 
 export const getAuthStatusAction = createAsyncThunk(
@@ -26,12 +26,15 @@ const authSlice = createSlice({
     [loginAction.fulfilled]: (state, { payload }) => {
       state.isAuthenticated = true;
       state.loading = false;
+      console.log("login success");
     },
     [loginAction.pending]: (state) => {
       state.loading = true;
+      console.log("loadin");
     },
     [loginAction.rejected]: (state) => {
       state.loading = false;
+      console.log("Failed");
     },
 
     [logoutAction.fulfilled]: (state, action) => {

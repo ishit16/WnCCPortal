@@ -5,9 +5,10 @@ import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
 import { getLoginURL, SSO } from "../config/sso";
 import useQueryString from "../hooks/useQueryString";
 import getAuthStatusAction from "../store/authSlice";
-import loginAction from "../store/authSlice";
+import CSRFToken from "../helpers/csrftoken";
+import { loginAction } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "../components/shared/toast/toast";
 
@@ -27,14 +28,18 @@ function LandingPage() {
       const state = JSON.parse(getQueryString("state")) ?? "/";
       navigate(state, { replace: true });
     } else if (isAuthenticated === null) {
+      console.log("hell");
       dispatch(getAuthStatusAction());
     } else {
+      console.log("hello");
+
       // ? If user is not authenticated
       const code = getQueryString("code");
+      console.log(code);
       if (code) {
         const loginUser = async (params) => {
           try {
-            const response = await dispatch(loginAction({ params }));
+            const response = dispatch(loginAction({ params }));
             toast({ status: "success", content: response?.payload?.detail });
           } catch (error) {
             toast({ status: "error", content: error });
@@ -43,7 +48,14 @@ function LandingPage() {
 
         const params = { code, redir: SSO.BASE_REDIRECT_URI };
         deleteQueryString("code");
-        loginUser(params);
+        dispatch(loginAction({ params }))
+          .then(() => {
+            console.log("success");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        // loginUser(params);
       }
 
       // ? If SSO login is unsuccessfull, an error param appears in the query string
@@ -63,7 +75,7 @@ function LandingPage() {
       <Helmet>
         <title>Login - Seasons of Code</title>
       </Helmet>
-
+      <CSRFToken />
       <div className="min-h-screen flex flex-col text-white">
         <main className="container mx-auto px-6 pt-16 flex-1 text-center">
           <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl uppercase">
@@ -81,6 +93,9 @@ function LandingPage() {
           </div>
           <div className="auth-container">
             <h1 className="font-sans">Join the Force</h1>
+
+            {/* Change the Logo with SOC Logo later */}
+
             <ResoBinLogo width="5rem" alt="logo" />
             <div className="py-2 px-2 md:py-2 md:px-2 lg:py-2 lg:px-2 w-fit mx-auto my-auto">
               <button

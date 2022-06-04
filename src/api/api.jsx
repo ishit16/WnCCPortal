@@ -1,8 +1,12 @@
 import axios from "axios";
 import toast from "../components/shared/toast/toast";
+import { snakeizeKeys } from "../helpers/transformKeys";
+import { camelizeKeys } from "../helpers/transformKeys";
 
 export const APIInstance = axios.create({
   baseURL: import.meta.env.VITE_API_HOST,
+  xsrfCookieName: "csrftoken",
+  xsrfHeaderName: "X-CSRFToken",
   timeout: 300000,
   withCredentials: true,
 });
@@ -41,8 +45,21 @@ APIInstance.interceptors.response.use(
 
 export const API = {
   auth: {
-    login: async ({ params }) => APIInstance.get("/accounts/login", { params }),
-    logout: async () => APIInstance.get("/accounts/logout"),
-    authenticate: async () => APIInstance.get("/accounts/authenticate"),
+    login: async ({ params }) => {
+      console.log(params);
+      APIInstance.get("api/authentication/login", { params });
+    },
+    logout: async () => APIInstance.get("api/authentication/logout"),
+    authenticate: async () =>
+      APIInstance.get("api/authentication/authenticate"),
+    csrftoken: async () => APIInstance.get("api/authentication/csrftoken"),
+  },
+  profile: {
+    read: async () => APIInstance.get("api/authentication/profile"),
+    update: async ({ payload }) =>
+      APIInstance.put("api/authentication/profile", payload),
+    delete: async () => APIInstance.delete("api/authentication/profile"),
   },
 };
+
+export default API;
