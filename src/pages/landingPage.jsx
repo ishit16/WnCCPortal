@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import toast from "../components/shared/toast/toast";
+import Header from "../components/shared/header";
 
 function LandingPage() {
   const dispatch = useDispatch();
@@ -31,8 +32,6 @@ function LandingPage() {
       console.log("hell");
       dispatch(getAuthStatusAction());
     } else {
-      console.log("hello");
-
       // ? If user is not authenticated
       const code = getQueryString("code");
       console.log(code);
@@ -77,6 +76,7 @@ function LandingPage() {
       </Helmet>
       <CSRFToken />
       <div className="min-h-screen flex flex-col text-white">
+        <Header />
         <main className="container mx-auto px-6 pt-16 flex-1 text-center">
           <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl uppercase">
             Welcome to
