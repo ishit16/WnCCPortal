@@ -4,7 +4,7 @@ import "./auth.css";
 import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
 import { getLoginURL, SSO } from "../config/sso";
 import useQueryString from "../hooks/useQueryString";
-import getAuthStatusAction from "../store/authSlice";
+import { getAuthStatusAction } from "../store/authSlice";
 import CSRFToken from "../helpers/csrftoken";
 import { loginAction } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";

@@ -13,6 +13,7 @@ export const APIInstance = axios.create({
 
 APIInstance.interceptors.request.use(
   (request) => {
+    console.log(request);
     if (request.headers["content-type"] === "application/json")
       return { ...request, data: snakeizeKeys(request.data) };
     return request;
