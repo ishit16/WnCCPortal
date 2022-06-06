@@ -41,3 +41,22 @@
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+
+.home-color {
+    background: rgb(43, 39, 59, 0.7);
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 0.75rem;
+}
+
+.major-soc {
+    display: inline-block;
+    margin: 0 0 1em 0;
+    color: #ffffff;
+    background: #629DD1;
+    width: 3em;
+    height: 3em;
+    font-size: 2em;
+    text-align: center;
+    line-height: 3em;
+    border-radius: 100%;
+    box-shadow: 0 0 0 10px #fff, 0 0 0 11px rgba(144, 144, 144, 0.25);
+}
