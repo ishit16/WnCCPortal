@@ -1,19 +1,27 @@
 import { ReactComponent as ResoBinLogo } from "../../assets/logo.svg";
+import { Helmet } from "react-helmet-async";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAction, selectIsAuthenticated } from "../../store/authSlice";
+import LogoutButton from "./logoutButton";
 
-function Header() {
+const Header = ({ disable = [], children }) => {
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
+  const handleLogout = async () => dispatch(logoutAction());
+
   return (
     <>
       <div className="sticky z-10 flex items-center justify-center h-12 bg-slate-900 shadow-md -my-2 -mx-2">
         <ResoBinLogo width="32" />
-        <div className="text-white underline decoration-4 font-semibold text-2xl font-sans absolute flex justify-center left-2">
+        <div className="text-white underline decoration-4 font-semibold text-2xl font-sans absolute flex justify-center left-3">
           SOC Portal
         </div>
-        <div className="mx-1 text-white underline decoration-4 font-semibold text-2xl font-sans absolute flex justify-center right-2">
-          WnCC
-        </div>
+        {loading}
+        {isAuthenticated ? <LogoutButton /> : <></>}
       </div>
     </>
   );
-}
+};
 
 export default Header;

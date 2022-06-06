@@ -29,12 +29,10 @@ function LandingPage() {
       const state = JSON.parse(getQueryString("state")) ?? "/";
       navigate(state, { replace: true });
     } else if (isAuthenticated === null) {
-      console.log("hell");
       dispatch(getAuthStatusAction());
     } else {
       // ? If user is not authenticated
       const code = getQueryString("code");
-      console.log(code);
       if (code) {
         const loginUser = async (params) => {
           try {

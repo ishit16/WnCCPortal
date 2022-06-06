@@ -13,7 +13,6 @@ export const APIInstance = axios.create({
 
 APIInstance.interceptors.request.use(
   (request) => {
-    console.log(request);
     if (request.headers["content-type"] === "application/json")
       return { ...request, data: snakeizeKeys(request.data) };
     return request;
@@ -47,7 +46,6 @@ APIInstance.interceptors.response.use(
 export const API = {
   auth: {
     login: async ({ params }) => {
-      console.log(params);
       APIInstance.get("api/authentication/login", { params });
     },
     logout: async () => APIInstance.get("api/authentication/logout"),
