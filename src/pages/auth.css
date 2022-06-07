@@ -68,15 +68,10 @@
     margin-left: -15px;
 }
 
-.coll-mdd-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
+.font-heading-home{
+    font-family: 'Montserrat';
 }
 
-.coll-smm-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
+.font-para-home {
+    font-family: 'Roboto';
 }
