@@ -18,7 +18,13 @@ const Header = ({ disable = [], children }) => {
           SOC Portal
         </div>
         {loading}
-        {isAuthenticated ? <LogoutButton /> : <></>}
+        {isAuthenticated ? (
+          <LogoutButton />
+        ) : (
+          <div className="text-white underline decoration-4 font-semibold text-2xl font-sans absolute flex justify-center right-3">
+            WnCC
+          </div>
+        )}
       </div>
     </>
   );

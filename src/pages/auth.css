@@ -60,3 +60,23 @@
     border-radius: 100%;
     box-shadow: 0 0 0 10px #fff, 0 0 0 11px rgba(144, 144, 144, 0.25);
 }
+
+.row-soc {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.coll-mdd-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+}
+
+.coll-smm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+}
