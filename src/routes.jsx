@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./hoc/PrivateRoute";
 import Error404 from "./pages/error404";
 import LandingPage from "./pages/landingPage";
-
+import AppContainer from "./components/Layout/layout";
 const Login = lazy(() => import("./pages/landingPage"));
 const Home = lazy(() => import("./pages/home"));
 

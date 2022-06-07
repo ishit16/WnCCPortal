@@ -75,3 +75,8 @@
 .font-para-home {
     font-family: 'Roboto';
 }
+
+.menu-height {
+    height: calc(100% - 3rem);
+    padding: 0;
+}
