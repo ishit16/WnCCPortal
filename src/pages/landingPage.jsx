@@ -74,7 +74,7 @@ function LandingPage() {
       </Helmet>
       <CSRFToken />
       <div className="min-h-screen flex flex-col text-white">
-        <Header />
+        {/* <Header /> */}
         <main className="container mx-auto px-6 pt-16 flex-1 text-center">
           <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl uppercase">
             Welcome to
@@ -109,11 +109,11 @@ function LandingPage() {
             </div>
           </div>
         </main>
-        <footer className="text-lg container mx-auto p-6 flex flex-col md: flex-row items-center justify-between">
-          <p className="font-bold font-sans">
+        {/* <footer className="text-lg container mx-auto flex flex-col md: flex-row items-center justify-between">
+          <p className="font-bold font-sans text-white">
             Built with {`\u2764`} by Ishit Garg
           </p>
-        </footer>
+        </footer> */}
       </div>
     </>
   );

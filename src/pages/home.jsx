@@ -8,8 +8,8 @@ function Home() {
       <Helmet>
         <title>Seasons of Code</title>
       </Helmet>
-      <div className="min-h-screen">
-        <Header />
+      {/* <Header /> */}
+      <div>
         <ChooseRoll />
       </div>
     </>

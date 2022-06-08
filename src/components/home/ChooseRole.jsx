@@ -56,7 +56,7 @@ function ChooseRoll() {
                     <br /> The Force will be with you always. <br /> Ready are
                     you?
                   </p>
-                  <Link to={"/"}>
+                  <Link to={"/error"}>
                     <button
                       type="button"
                       size="large"

@@ -1,12 +1,15 @@
 import Header from "../shared/header";
 
-function AppContainer() {
+function AppContainer({ children }) {
   return (
     <>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main></main>
-      </div>
+      <Header />
+      {children}
+      <footer className="text-lg container mx-auto flex flex-col md: flex-row items-center justify-between py-8">
+        <p className="font-bold font-sans text-white">
+          Built with {`\u2764`} by Ishit Garg
+        </p>
+      </footer>
     </>
   );
 }
