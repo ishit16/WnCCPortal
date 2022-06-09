@@ -5,6 +5,7 @@ import Error404 from "./pages/error404";
 import LandingPage from "./pages/landingPage";
 import AppContainer from "./components/Layout/layout";
 import { Layout } from "antd";
+// import Menu from "./components/menu/menu";
 const Login = lazy(() => import("./pages/landingPage"));
 const Home = lazy(() => import("./pages/home"));
 
