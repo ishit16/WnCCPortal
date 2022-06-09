@@ -5,7 +5,6 @@ function AppContainer({ children }) {
   return (
     <>
       <Header />
-      <Menu />
       {children}
       <footer className="text-lg container mx-auto flex flex-col md: flex-row items-center justify-between py-4">
         <p className="font-bold font-sans text-white">
