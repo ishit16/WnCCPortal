@@ -16,10 +16,8 @@ const ContainerBase = css`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 3rem;
-  padding: 0.5rem;
+  height: 4rem;
   background: #2b273b;
-  border-left: 3px solid transparent;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -43,7 +41,6 @@ const StyledNavLink = styled(NavLink)`
     }
     &.active {
       background: #585280;
-      border-left: 3px solid #FFF;
     }
   }
 `;
@@ -60,14 +57,15 @@ const IconContainer = styled.div`
 
 const Title = styled.h4`
   display: none;
+  font-family: Ubuntu;
   @media ${device.min.md} {
     display: flex;
     align-items: center;
     width: 70%;
     overflow: hidden;
     font-weight: 400;
-    font-size: 0.875rem;
-    letter-spacing: 0.5px;
+    font-size: 1rem;
+    letter-spacing: 1px;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
