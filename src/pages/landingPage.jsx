@@ -73,7 +73,7 @@ function LandingPage() {
         <title>Login - Seasons of Code</title>
       </Helmet>
       <CSRFToken />
-      <div className="min-h-screen flex flex-col text-white">
+      <div className=" flex flex-col text-white">
         {/* <Header /> */}
         <main className="container mx-auto px-6 pt-16 flex-1 text-center">
           <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl uppercase">
