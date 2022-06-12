@@ -7,6 +7,7 @@ import AppContainer from "./components/Layout/layout";
 import { Layout } from "antd";
 import ProjectCard from "./components/shared/projectCard";
 import ApprovedProjects from "./pages/allProjects";
+import ProjectDetails from "./pages/ProjectDetails";
 // import Menu from "./components/menu/menu";
 const Login = lazy(() => import("./pages/landingPage"));
 const Home = lazy(() => import("./pages/home"));
@@ -19,6 +20,7 @@ export const AppRoutes = () => (
       <Route path="/login" element={<LandingPage />} />
       <Route path="/error" element={<Error404 />} />
       <Route path="/projects" element={<ApprovedProjects />} />
+      <Route path="/projects/details" element={<ProjectDetails />} />
       <Route
         path="*"
         element={<PrivateRoute component={Home} redirectTo="/login" />}

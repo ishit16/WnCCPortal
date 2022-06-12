@@ -11,7 +11,7 @@ function ProjectCard() {
         </h2>
         <Link
           to={"/"}
-          className="text-lg  font-para-home no-underline  text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium text-center p-3"
+          className="text-lg  font-para-home no-underline  text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium text-center p-3"
         >
           Know More
         </Link>
