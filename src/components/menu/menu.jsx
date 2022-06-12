@@ -37,7 +37,7 @@ const Menu = () => {
         title="All Projects"
         icon={FaRProject}
         iconSize={iconSize}
-        to="/error"
+        to="/projects"
       />
       <MenuItem title="Dev" icon={FaDev} iconSize={iconSize} to="/error" />
       <MenuItem
