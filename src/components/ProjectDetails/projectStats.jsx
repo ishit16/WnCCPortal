@@ -1,26 +1,27 @@
+import { FcBarChart } from "react-icons/fc";
+
 export default function ProjectStats() {
   return (
-    <div className="flex flex-col min-w-w0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+    <div className="flex flex-col min-w-0 break-words bg-white opacity-60 rounded mb-6 xl:mb-0 shadow-lg">
       <div className="flex-auto p-4">
         <div className="flex flex-wrap">
           <div className="w-full pr-4 max-w-full flex-grow flex-1">
             <h5 className="text-red-500 uppercase font-bold text-xs">
-              Project
+              Total Registrations
             </h5>
-            <span className="font-semibold text-xl text-red-500">Mentors</span>
+            <span className="font-semibold text-xl text-red-500">43</span>
           </div>
           <div className="w-auto pl-4 flex-initial">
             <div
               className={
-                "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full " +
-                statIconColor
+                "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "
               }
             >
-              <i className={statIconName}></i>
+              <FcBarChart />
             </div>
           </div>
         </div>
-        <p className="text-sm text-blueGray-400 mt-4">
+        {/* <p className="text-sm text-blueGray-400 mt-4">
           <span className={statPercentColor + " mr-2"}>
             <i
               className={
@@ -34,7 +35,7 @@ export default function ProjectStats() {
             {statPercent}%
           </span>
           <span className="whitespace-nowrap">{statDescripiron}</span>
-        </p>
+        </p> */}
       </div>
     </div>
   );

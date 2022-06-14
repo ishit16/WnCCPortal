@@ -12,7 +12,7 @@ const Header = ({ disable = [], children }) => {
 
   return (
     <>
-      <div className="sticky top-0 flex items-center justify-center h-12 bg-slate-900 shadow-md -my-2 -mx-2">
+      <div className="z-10 sticky top-0 flex items-center justify-center h-12 bg-slate-900 shadow-md -my-2 -mx-2">
         <ResoBinLogo width="32" />
         <div className="text-white underline decoration-4 font-semibold text-2xl font-sans absolute flex justify-center left-3">
           SOC Portal
