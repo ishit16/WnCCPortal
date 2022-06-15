@@ -13,3 +13,8 @@
 .font-project-heading {
     font-family: Montserrat;
 }
+
+.header-class {
+    width: 100%;
+    top: 0;
+}

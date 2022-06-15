@@ -60,7 +60,6 @@ export default Menu;
 const Containerr = styled.nav`
   position: sticky;
   top: 3rem;
-  left: 0;
   z-index: 100;
   display: flex;
   align-items: center;
