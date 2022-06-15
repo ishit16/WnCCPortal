@@ -12,11 +12,12 @@ import { device } from "../../styles/mediaQuery";
 import styled from "styled-components";
 import { MenuItem } from "./menuItem";
 import "./menu.css";
-import StyledDivider from "../shared/Divider";
+import useDevice from "../../hooks/useDevice";
 
 const Menu = () => {
   const iconSize = `1.125rem`;
-  console.log(window.innerWidth);
+  const { isPhone } = useDevice();
+
   return (
     <Containerr>
       <MenuItem title="Home" icon={FaHome} iconSize={iconSize} to="/" />
@@ -32,7 +33,9 @@ const Menu = () => {
         iconSize={iconSize}
         to="/error"
       />
-      {window.innerWidth > 800 ? <hr className="hr-class" /> : <></>}
+
+      {!isPhone && <hr className="hr-class" />}
+
       <MenuItem
         title="All Projects"
         icon={FaRProject}
