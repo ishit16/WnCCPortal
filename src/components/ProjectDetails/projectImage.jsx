@@ -1,7 +1,9 @@
+import "./details.css";
+
 export default function ProjectImageCard() {
   return (
     <>
-      <div className="flex flex-col min-w-0 break-words bg-slate-700 opacity-60 w-full mb-6 z-5 shadow-lg rounded">
+      <div className="flex card-bg flex-col min-w-0 break-words w-full mb-6 z-5 shadow-lg rounded">
         <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="w-full max-w-full flex-grow flex-1">
