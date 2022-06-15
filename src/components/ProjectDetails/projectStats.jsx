@@ -2,7 +2,7 @@ import { FcBarChart } from "react-icons/fc";
 
 export default function ProjectStats() {
   return (
-    <div className="flex flex-col min-w-0 break-words bg-white opacity-60 rounded mb-6 xl:mb-0 shadow-lg">
+    <div className="flex flex-col min-w-0 break-words bg-slate-700 opacity-60 rounded mb-6 xl:mb-0 shadow-lg">
       <div className="flex-auto p-4">
         <div className="flex flex-wrap">
           <div className="w-full pr-4 max-w-full flex-grow flex-1">
@@ -14,7 +14,7 @@ export default function ProjectStats() {
           <div className="w-auto pl-4 flex-initial">
             <div
               className={
-                "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "
+                "bg-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "
               }
             >
               <FcBarChart />
