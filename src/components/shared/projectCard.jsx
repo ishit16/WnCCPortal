@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import "./shared.css";
+import project1 from "../../assets/project1.png";
 
 function ProjectCard() {
   return (
     <div>
       <div className="flex flex-col bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52 project-card">
-        <img src="src/assets/project1.png" alt="project1" className="h-40" />
+        <img src={project1} alt="project1" className="h-40" />
         <h2 className="text-center font-project-heading px-2">
           Dummy Project SOC
         </h2>
