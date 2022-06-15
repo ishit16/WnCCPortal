@@ -75,12 +75,13 @@ const Containerr = styled.nav`
 
   @media ${device.min.md} {
     position: fixed;
-    top: 3rem;
-    z-index: 100; /* For shadow effects */
+    top: 2.99rem;
+    z-index: 8; /* For shadow effects */
     flex-direction: column;
     justify-content: initial;
     width: 9rem;
     height: calc(100% - 3rem);
     padding: 0;
+    box-shadow: 0 0 0.5rem rgb(0 0 0 / 50%);
   }
 `;
