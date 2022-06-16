@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import { Helmet } from "react-helmet";
 import "./auth.css";
 import { ReactComponent as ResoBinLogo } from "../assets/logo.svg";
@@ -10,8 +9,8 @@ import { loginAction } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import toast from "../components/shared/toast/toast";
-import Header from "../components/shared/header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function LandingPage() {
   const dispatch = useDispatch();
@@ -19,6 +18,9 @@ function LandingPage() {
   const location = useLocation();
   const { deleteQueryString, getQueryString } = useQueryString();
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
+  const showToast = () => {
+    toast("I am Toastify!");
+  };
 
   useEffect(() => {
     // * isAuthenticated === true => already authenticated => redirect away from login
@@ -109,11 +111,8 @@ function LandingPage() {
             </div>
           </div>
         </main>
-        {/* <footer className="text-lg container mx-auto flex flex-col md: flex-row items-center justify-between">
-          <p className="font-bold font-sans text-white">
-            Built with {`\u2764`} by Ishit Garg
-          </p>
-        </footer> */}
+        <button onClick={showToast}>Hit me up to test</button>
+        <ToastContainer position="top-center" />
       </div>
     </>
   );
