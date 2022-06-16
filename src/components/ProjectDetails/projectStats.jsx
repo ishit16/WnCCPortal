@@ -1,8 +1,9 @@
 import { FcBarChart } from "react-icons/fc";
+import "./details.css";
 
 export default function ProjectStats() {
   return (
-    <div className="flex flex-col min-w-0 break-words bg-slate-700 opacity-60 rounded mb-6 xl:mb-0 shadow-lg">
+    <div className="flex flex-col min-w-0 break-words card-bg rounded mb-6 xl:mb-0 shadow-lg">
       <div className="flex-auto p-4">
         <div className="flex flex-wrap">
           <div className="w-full pr-4 max-w-full flex-grow flex-1">
