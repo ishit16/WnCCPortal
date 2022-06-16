@@ -1,6 +1,6 @@
-import Menu from "../menu/menu";
-import { MenuItem } from "../menu/menuItem";
-import Header from "../shared/header";
+import Menu from "../../components/menu/menu";
+import { MenuItem } from "../../components/menu/menuItem";
+import Header from "../../components/shared/header";
 import { useLocation } from "react-router-dom";
 
 function AppContainer({ children }) {
