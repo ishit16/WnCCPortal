@@ -7,7 +7,7 @@ function ProjectCard() {
     <div>
       <div className="flex flex-col bg-white rounded-lg shadow-md w-full my-6 md:mx-6 overflow-hidden sm:w-52 project-card">
         <img src={project1} alt="project1" className="h-40" />
-        <h2 className="text-center font-project-heading px-2">
+        <h2 className="text-center text-white font-project-heading px-2">
           Dummy Project SOC
         </h2>
         <Link

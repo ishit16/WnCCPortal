@@ -7,6 +7,7 @@ import initSentry from "./config/sentry";
 import { store, persistor } from "./store";
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
 
 import App from "./App";

@@ -14,3 +14,20 @@
     font-family: Montserrat;
 }
 
+.avatar-div{
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 32px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 32;
+    white-space: nowrap;
+    align-items: center;
+    vertical-align: middle;
+    
+    min-height: 1.75rem;
+    min-width: 1.75rem;
+    display: flex;
+}
