@@ -9,52 +9,51 @@ import { loginAction } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import { toast, ToastContainer } from "react-toastify";
 function LandingPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const { deleteQueryString, getQueryString } = useQueryString();
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
-  const showToast = () => {
-    toast("I am Toastify!");
-  };
-
+  console.log(isAuthenticated);
   useEffect(() => {
     // * isAuthenticated === true => already authenticated => redirect away from login
     // * isAuthenticated === null => auth status unknown => check with backend server
     // * isAuthenticated === false => not authenticated => check if auth is possible
 
     if (isAuthenticated) {
+      console.log("Fuck you, I am not logged in!");
       const state = JSON.parse(getQueryString("state")) ?? "/";
       navigate(state, { replace: true });
     } else if (isAuthenticated === null) {
+      console.log("Do I look like a null!?");
       dispatch(getAuthStatusAction());
     } else {
-      // ? If user is not authenticated
+      console.log("Ahhh! finally");
       const code = getQueryString("code");
       if (code) {
+        console.log(code);
+
         const loginUser = async (params) => {
           try {
-            const response = dispatch(loginAction({ params }));
-            toast({ status: "success", content: response?.payload?.detail });
+            console.log("success");
+
+            const response = await dispatch(loginAction({ params }));
+            toast("Logged in Successfully.", {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 3000,
+            });
           } catch (error) {
-            toast({ status: "error", content: error });
+            toast.error(error);
           }
         };
 
         const params = { code, redir: SSO.BASE_REDIRECT_URI };
         deleteQueryString("code");
-        dispatch(loginAction({ params }))
-          .then(() => {
-            console.log("success");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        // loginUser(params);
+        console.log("failure");
+
+        loginUser(params);
       }
 
       // ? If SSO login is unsuccessfull, an error param appears in the query string
@@ -111,8 +110,6 @@ function LandingPage() {
             </div>
           </div>
         </main>
-        <button onClick={showToast}>Hit me up to test</button>
-        <ToastContainer position="top-center" />
       </div>
     </>
   );

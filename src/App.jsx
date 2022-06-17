@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { AppRoutes } from "./routes";
 import { selectAuthLoading } from "./store/authSlice";
+import { ToastContainer } from "react-toastify";
 function App() {
   const authLoading = useSelector(selectAuthLoading);
 
@@ -15,6 +16,7 @@ function App() {
         <title>Seasons of Code</title>
         <meta name="description" content="WnCC's SOC Portal" />
       </Helmet>
+      <ToastContainer />
       <Suspense>
         <AppRoutes />
       </Suspense>
