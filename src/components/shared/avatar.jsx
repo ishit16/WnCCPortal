@@ -1,4 +1,3 @@
-import { Avatar } from "antd";
 import { BsFillPersonFill } from "react-icons/bs";
 import "./shared.css";
 const user = "I";
