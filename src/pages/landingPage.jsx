@@ -44,7 +44,7 @@ function LandingPage() {
             const response = await dispatch(loginAction({ params }));
             toast("Logged in Successfully.", {
               position: toast.POSITION.TOP_CENTER,
-              autoClose: 3000,
+              autoClose: 2000,
             });
           } catch (error) {
             toast.error(error);
